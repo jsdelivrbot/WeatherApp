@@ -6,6 +6,17 @@ function average(data) {
     return _.round(_.sum(data)/data.length);
 }
 
+function showCorrectData(data, type) {
+    if (type && type === 'temp') {
+        let avgK = _.round(_.sum(data) / data.length),
+            avgF = _.round((9 / 5) * (avgK - 273) + 32),
+            avgC = _.round((5 / 9) * (avgF - 32));
+        return avgK + '/' + avgF + '/' + avgC;
+    } else {
+        return average(data);
+    }
+}
+
 export default (props) => {
      return (
         <div>
@@ -13,7 +24,7 @@ export default (props) => {
                 <SparklinesLine color={props.color} />
                 <SparklinesReferenceLine type="avg" />
              </Sparklines>
-             <div>{average(props.data)}</div>
+             <div>{showCorrectData(props.data, props.infoType)}</div>
         </div>
      );
 }

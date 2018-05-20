@@ -13,7 +13,7 @@ class WeatherList extends Component {
         return (
             <tr key={name}>
                 <td>{name}</td>
-                <td><Chart data={temps} color="orange" /></td>
+                <td><Chart data={temps} color="orange" infoType="temp" /></td>
                 <td><Chart data={pressures} color="blue" /></td>
                 <td><Chart data={humidities} color="black" /></td>
             </tr>
@@ -22,16 +22,16 @@ class WeatherList extends Component {
 
     render() {
         return(
-            <table className="table table-hover">
+            <table className="table table-condensed">
                 <thead>
                     <tr>
                         <th>City</th>
-                        <th>Temperature</th>
-                        <th>Pressure</th>
-                        <th>Humidity</th>
+                        <th>Temperature(K/F/C)</th>
+                        <th>Pressure(hPa)</th>
+                        <th>Humidity(%)</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="table-striped">
                     {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>

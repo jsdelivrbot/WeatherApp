@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/main.scss';
 
 // CONTAINERS
 import SearchBar from '../containers/search_bar';
